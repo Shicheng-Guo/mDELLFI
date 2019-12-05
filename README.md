@@ -1,5 +1,5 @@
 #### low-pass WGBS based DELFI 
-
+*
 ##### Read mapping
 Low-pass WGBS data will be processed as our previous publication[1]. We first trimmed all paired-end (PE) or single-end (SE) fastq files using trim-galore version 0.6.5 to remove low-quality bases and biased read positions. Next, the reads were encoded to map to a three-letter genome via conversion of all cytosines to thymidines or all guanines to adenines for the reads that seemed to be from the reverse-complement strand. Then the reads were mapped using Bowtie 2 (version 2.3.5.1) and Bismark (version 0.22.3), with the default setting to both the Watson-strand- and Crick-strand-converted genomes. The alignments with mapping-quality scores of < five were discarded, and only reads with a higher best-mapping-quality score in either the Watson or Crick strand were kept. Finally, the encoded read sequences were replaced by the original read sequences in the final BAM files. Overlapping paired-end reads were also clipped with the bamUtils clipOverlap function. the length of the fragments will be calculated as R= S-E while E indicates reads end and S indicates reads start. 
 
